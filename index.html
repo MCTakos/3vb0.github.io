@@ -1,1 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>3vb0 Minecraft Server - TAKOSTREAM Official</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
+  /* Reset & basics */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a1e50);
+    color: #eee;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: #ff61a6;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* NAVBAR */
+  nav {
+    position: sticky;
+    top: 0;
+    background: #2c1338cc;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(255, 97, 166, 0.2);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+  }
+  nav ul li {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  nav ul li a {
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    background: #ff61a6;
+    color: #1e1e2f;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    scroll-margin-top: 80px; /* For sticky nav */
+  }
+
+  /* HERO */
+  #home {
+    text-align: center;
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+    background: linear-gradient(135deg, #ff0080, #e52e71);
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 50px #ff0080aa;
+    position: relative;
+    overflow: hidden;
+  }
+  #home h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #fff;
+    animation: pulseGlow 2.5s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 15px #fff, 0 0 30px #ff0080; }
+    50% { text-shadow: 0 0 40px #fff, 0 0 60px #ff0080; }
+  }
+  #home p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px #e52e71;
+  }
+  #home .btn-join {
+    background: #fff;
+    color: #e52e71;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 30px #e52e71;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #home .btn-join:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 60px #ff61a6;
+  }
+
+  /* ABOUT */
+  #about {
+    background: #2c1338cc;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #ff61a6aa;
+  }
+  #about h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff61a6;
+    text-shadow: 0 0 10px #ff61a6;
+  }
+  #about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  #about .img-gallery {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #about .img-gallery img {
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #ff61a6;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  #about .img-gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  /* CONTACT */
+  #contact {
+    background: #2c1338cc;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #ff61a6aa;
+  }
+  #contact h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff61a6;
+    text-shadow: 0 0 10px #ff61a6;
+  }
+  #contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  #contact label {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  #contact input,
+  #contact textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  #contact input:focus,
+  #contact textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px #ff61a6;
+  }
+  #contact button {
+    background: #ff61a6;
+    border: none;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e1e2f;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 30px #ff61a6;
+    transition: background 0.3s ease;
+  }
+  #contact button:hover {
+    background: #e52e71;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #999;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    #about .img-gallery img {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About Server</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section id="home">
+  <h1>Welcome to 3vb0 Minecraft Server</h1>
+  <p>Your ultimate Parkour experience on <strong>3vb0.exaroton.me</strong></p>
+  <button class="btn-join" onclick="joinServer()">JOIN SERVER</button>
+</section>
+<section id="about">
+	<div style="max-width: 900px; margin: 3rem auto; padding: 1.5rem 1rem; color: #fff; font-family: 'Orbitron', sans-serif; text-align: left; line-height: 1.6; font-size: 1.2rem; background: rgba(30, 30, 47, 0.85); border-radius: 12px; box-shadow: 0 0 30px #ff0080;">
+  <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; color: #ff416c; text-shadow: 0 0 20px #ff0080;">
+🔥 3VB0 PARKOUR CIVILIZATION 🔥</h2>
+  
+  <p>Get ready to dive into the ultimate parkour grind on <strong>3vb0 Parkour Civilization</strong> — the server forged by the <strong>FOUR GODS</strong> themselves! ⚡️</p>
+  
+  <p>At the heart of this epic world stands <strong> <a href="https://youtube.com/@takostream"
+   style="position:relative;color:#0066ff;text-decoration:underline;cursor:pointer;"
+   onmouseover="this.children[0].style.display='block';"
+   onmouseout ="this.children[0].style.display='none';">
+
+  <!-- ‼️ Tooltip bubble -->
+  <span style="display:none;position:absolute;bottom:135%;left:50%;
+               transform:translateX(-50%);
+               background:#ffffff;border:1px solid #cccccc;border-radius:10px;
+               padding:6px 10px;font-size:12px;white-space:nowrap;
+               box-shadow:0 2px 6px rgba(0,0,0,0.15);z-index:999;">
+
+        TakoStream’s YouTube Channel!
+
+        <!-- ▼ Tiny arrow pointer -->
+        <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%) rotate(45deg);
+                     width:10px;height:10px;
+                     background:#ffffff;border-left:1px solid #cccccc;border-top:1px solid #cccccc;"></span>
+  </span>
+
+  TakoStream
+</a>
+</strong>(me), the mastermind who <em>CREATED</em> this server from scratch — coding the backbone and building the hype! Alongside him, <strong>Thorman0011</strong> brought the code magic to life, pushing boundaries with insane plugins and custom features.</p>
+  
+  <p>But wait, it gets better! The jaw-dropping, mind-bending parkour maps? That’s the legendary duo <strong> <a href="https://youtube.com/@Spo0kygamerzYT2"
+   style="position:relative;color:#0066ff;text-decoration:underline;cursor:pointer;"
+   onmouseover="this.children[0].style.display='block';"
+   onmouseout ="this.children[0].style.display='none';">
+
+  <!-- ‼️ Tooltip bubble -->
+  <span style="display:none;position:absolute;bottom:135%;left:50%;
+               transform:translateX(-50%);
+               background:#ffffff;border:1px solid #cccccc;border-radius:10px;
+               padding:6px 10px;font-size:12px;white-space:nowrap;
+               box-shadow:0 2px 6px rgba(0,0,0,0.15);z-index:999;">
+
+        Spo0kyGamerz’s YouTube Channel!
+
+        <!-- ▼ Tiny arrow pointer -->
+        <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%) rotate(45deg);
+                     width:10px;height:10px;
+                     background:#ffffff;border-left:1px solid #cccccc;border-top:1px solid #cccccc;"></span>
+  </span>
+
+	Spo0kyGamerz
+</a>
+</strong> and <strong> <a href="https://youtube.com/@nightlyla"
+   style="position:relative;color:#0066ff;text-decoration:underline;cursor:pointer;"
+   onmouseover="this.children[0].style.display='block';"
+   onmouseout ="this.children[0].style.display='none';">
+
+  <!-- ‼️ Tooltip bubble -->
+  <span style="display:none;position:absolute;bottom:135%;left:50%;
+               transform:translateX(-50%);
+               background:#ffffff;border:1px solid #cccccc;border-radius:10px;
+               padding:6px 10px;font-size:12px;white-space:nowrap;
+               box-shadow:0 2px 6px rgba(0,0,0,0.15);z-index:999;">
+
+        KnightLyla’s YouTube Channel!
+
+        <!-- ▼ Tiny arrow pointer -->
+        <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%) rotate(45deg);
+                     width:10px;height:10px;
+                     background:#ffffff;border-left:1px solid #cccccc;border-top:1px solid #cccccc;"></span>
+  </span>
+
+	KnightLyla
+</a></strong> — they <em>BUILT</em> every insane jump and crazy challenge you’ll face here. No shortcuts, no nerfs, just pure grind crafted by the masters.</p>
+  
+  <p>We’re not just a team, we’re the <strong>FIVE GODS</strong> of Evbo — shaping every block, every pixel, every jump with blood, sweat, and epic game hours. And now, we’re <strong>HYPED AF</strong> that <strong>YOU’RE</strong> here to join this legend-filled journey.</p>
+  
+  <p>Prepare your reflexes, sharpen those fingers, and get ready to prove you’re worthy in the toughest parkour civilization ever made.</p>
+  
+  <p><strong>Join us, compete, conquer, and become a legend!</strong></p>
+  
+  <p>— The 3vb0 four Gods: <strong>TakoStream, Thorman0011, Spo0kygamerz, Knightlyla  </strong></p>
+  
+  <p style="font-weight: 900; font-size: 1.4rem; color: #ff61a6; text-shadow: 0 0 10px #ff0080;">Ready to jump in? LET’S GOOOOOO!!! 🎮🔥</p>
+</div>
+  <h2>About 3vb0 Server</h2>
+
+  <div class="img-gallery">
+    <img src="https://minecraftskinstealer.com/achievement/0/Achievement%20Get!/Join%20the%20Battle!" alt="Server Achievement">
+    <img src="https://i.imgur.com/X4Ygh39.jpg" alt="PvP Arena Screenshot">
+    <img src="https://i.imgur.com/MOGH9Qy.jpg" alt="Survival World Screenshot">
+  </div>
+</section>
+<section id="AboutServer">
+	<!-- Orbitron Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+<div style="max-width: 900px; margin: 3rem auto; padding: 1.5rem 1rem; color: #fff; font-family: 'Orbitron', sans-serif; text-align: left; line-height: 1.6; font-size: 1.2rem; background: rgba(30, 30, 47, 0.85); border-radius: 12px; box-shadow: 0 0 30px #ff0080;">
+
+  <div class="evbo-toggle-section">
+    <div class="evbo-toggle-header" onclick="toggleSection(this)">+ Does 3vb0 Supports Bedrock Edition?</div>
+    <div class="evbo-toggle-content">
+      <p>Yes! The IP is still: 3vb0.exaroton.me and the Port is 55654</p>
+    </div>
+  </div>
+
+  <div class="evbo-toggle-section">
+    <div class="evbo-toggle-header" onclick="toggleSection(this)">+ What's The Port on Java Edition?</div>
+    <div class="evbo-toggle-content">
+      <p>The Port for our server is: 55654, Thanks for joining!</p>
+    </div>
+  </div>
+	 <div class="evbo-toggle-section">
+    <div class="evbo-toggle-header" onclick="toggleSection(this)">+ Is there a Discord?</div>
+    <div class="evbo-toggle-content">
+      <p>YES! The Discord is <a href="https://discord.gg/hnUDkzBhEE"
+   style="position:relative;color:#0066ff;text-decoration:underline;cursor:pointer;"
+   onmouseover="this.children[0].style.display='block';"
+   onmouseout ="this.children[0].style.display='none';">
+
+  <!-- ‼️ Tooltip bubble -->
+  <span style="display:none;position:absolute;bottom:135%;left:50%;
+               transform:translateX(-50%);
+               background:#ffffff;border:1px solid #cccccc;border-radius:10px;
+               padding:6px 10px;font-size:12px;white-space:nowrap;
+               box-shadow:0 2px 6px rgba(0,0,0,0.15);z-index:999;">
+
+        Our Discord Server!
+
+        <!-- ▼ Tiny arrow pointer -->
+        <span style="position:absolute;top:100%;left:50%;transform:translateX(-50%) rotate(45deg);
+                     width:10px;height:10px;
+                     background:#ffffff;border-left:1px solid #cccccc;border-top:1px solid #cccccc;"></span>
+  </span>
+
+  Discord
+</a></p>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .evbo-toggle-header {
+    background: #1e1e2f;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ff61a6;
+    border: 2px solid #ff0080;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    text-shadow: 0 0 10px #ff0080;
+    transition: background 0.2s ease;
+  }
+
+  .evbo-toggle-header:hover {
+    background: #2a2a44;
+  }
+
+  .evbo-toggle-content {
+    display: none;
+    background: #111122;
+    border: 1px solid #ff0080;
+    border-radius: 0 0 8px 8px;
+    margin-top: -0.5rem;
+    padding: 1rem;
+    color: #ffc5e6;
+    box-shadow: inset 0 0 10px #ff0080;
+  }
+</style>
+
+<script>
+  function toggleSection(header) {
+    const content = header.nextElementSibling;
+    const isOpen = content.style.display === "block";
+    document.querySelectorAll(".evbo-toggle-content").forEach(c => c.style.display = "none");
+    document.querySelectorAll(".evbo-toggle-header").forEach(h => h.innerText = h.innerText.replace("-", "+"));
+    if (!isOpen) {
+      content.style.display = "block";
+      header.innerText = header.innerText.replace("+", "-");
+    }
+  }
+</script>
+</section>
+<section id="contact">
+  <h2>Contact TakoStream</h2>
+  <form onsubmit="handleSubmit(event)">
+	<!-- Orbitron font (if not already included) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<!-- Contact Form Container -->
+<div style="max-width: 900px; margin: 3rem auto; padding: 1.5rem 1rem; background: rgba(30, 30, 47, 0.85); border-radius: 12px; box-shadow: 0 0 30px #ff0080; font-family: 'Orbitron', sans-serif; color: #fff;">
+
+  <h2 style="color: #ff61a6; text-shadow: 0 0 15px #ff0080; font-size: 2rem; margin-bottom: 1rem;">Contact The EVBO Team</h2>
+
+  <form id="contactForm">
+    <label for="from_name">Your Name</label><br>
+    <input type="text" id="from_name" name="from_name" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;">
+
+    <label for="from_email">Your Email</label><br>
+    <input type="email" id="from_email" name="from_email" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;">
+
+    <label for="message">Message</label><br>
+    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;"></textarea>
+
+    <button type="submit" style="padding: 12px 20px; background: #ff0080; color: #fff; font-weight: bold; border: none; border-radius: 8px; box-shadow: 0 0 10px #ff0080; cursor: pointer;">SEND MESSAGE</button>
+  </form>
+
+  <p id="contactStatus" style="margin-top: 1rem; color: #90ee90;"></p>
+</div>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("VULDmRargTz1jQ1EB"); // Replace with your EmailJS public key
+  })();
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_vm3u2x8", "template_wp4j5v7", this)
+      .then(() => {
+        document.getElementById("contactStatus").textContent = "Message sent successfully! 💌";
+        this.reset();
+      }, (error) => {
+        document.getElementById("contactStatus").textContent = "Failed to send message. 🚫";
+        console.error('FAILED...', error);
+      });
+  });
+</script>
+</form>
+<script>
+  const form = document.getElementById("contact-form");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const res = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" }
+    });
+
+    if (res.ok) {
+      alert("✅ Message sent successfully to TakoStream! You’ll get a reply soon.");
+      form.reset();
+    } else {
+      alert("❌ Whoops! Something went wrong. Try again later.");
+    }
+  });
+</script>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 3VB0 | All rights reserved
+</footer>
+
+<script>
+  // Smooth scroll nav active highlight
+  const links = document.querySelectorAll('nav ul li a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    document.querySelectorAll('section').forEach(section => {
+      const sectionTop = section.offsetTop - 90;
+      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    });
+    links.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Join Server button - open Minecraft IP (or copy)
+  function joinServer() {
+    const serverIP = '3vb0.exaroton.me';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(serverIP).then(() => {
+        alert(`Server IP "${serverIP}" copied! Paste in Minecraft to join.`);
+      });
+    } else {
+      alert(`Server IP: ${serverIP}`);
+    }
+  }
+
+  // Handle contact form submit (dummy, just alert)
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('Thanks for the message! I will get back to you soon, TakoStream fan!');
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
