@@ -4,7 +4,7 @@
 <link rel="icon" href="https://mctakos.github.io/3vb0.github.io/favicon.ico" type="image/x-icon" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>3vb0 Minecraft Server - TAKOSTREAM Official</title>
+<title>3vb0 Minecraft Server -  by TakoStream</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
@@ -417,79 +417,6 @@
     }
   }
 </script>
-</section>
-<section id="contact">
-  <h2>Contact TakoStream</h2>
-  <form onsubmit="handleSubmit(event)">
-	<!-- Orbitron font (if not already included) -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-
-<!-- EmailJS SDK -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-<!-- Contact Form Container -->
-<div style="max-width: 900px; margin: 3rem auto; padding: 1.5rem 1rem; background: rgba(30, 30, 47, 0.85); border-radius: 12px; box-shadow: 0 0 30px #ff0080; font-family: 'Orbitron', sans-serif; color: #fff;">
-
-  <h2 style="color: #ff61a6; text-shadow: 0 0 15px #ff0080; font-size: 2rem; margin-bottom: 1rem;">Contact The EVBO Team</h2>
-
-  <form id="contactForm">
-    <label for="from_name">Your Name</label><br>
-    <input type="text" id="from_name" name="from_name" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;">
-
-    <label for="from_email">Your Email</label><br>
-    <input type="email" id="from_email" name="from_email" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;">
-
-    <label for="message">Message</label><br>
-    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: none; background: #222; color: #fff;"></textarea>
-
-    <button type="submit" style="padding: 12px 20px; background: #ff0080; color: #fff; font-weight: bold; border: none; border-radius: 8px; box-shadow: 0 0 10px #ff0080; cursor: pointer;">SEND MESSAGE</button>
-  </form>
-
-  <p id="contactStatus" style="margin-top: 1rem; color: #90ee90;"></p>
-</div>
-
-<!-- EmailJS Script -->
-<script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("VULDmRargTz1jQ1EB"); // Replace with your EmailJS public key
-  })();
-
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm("service_vm3u2x8", "template_wp4j5v7", this)
-      .then(() => {
-        document.getElementById("contactStatus").textContent = "Message sent successfully! 💌";
-        this.reset();
-      }, (error) => {
-        document.getElementById("contactStatus").textContent = "Failed to send message. 🚫";
-        console.error('FAILED...', error);
-      });
-  });
-</script>
-</form>
-<script>
-  const form = document.getElementById("contact-form");
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    const res = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { Accept: "application/json" }
-    });
-
-    if (res.ok) {
-      alert("✅ Message sent successfully to TakoStream! You’ll get a reply soon.");
-      form.reset();
-    } else {
-      alert("❌ Whoops! Something went wrong. Try again later.");
-    }
-  });
-</script>
-  </form>
 </section>
 
 <footer>
